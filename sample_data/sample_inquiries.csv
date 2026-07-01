@@ -1,1 +1,14 @@
 
+INQUIRY_ID,CUSTOMER_NAME,LOAN_ID,INQUIRY_TEXT,RECEIVED_DATE,SOURCE,CURRENT_STATUS
+INQ-001,Jane Doe,100000001,"I made my mortgage payment last week, but my account still shows a late fee. Can someone explain why?",2026-03-01,EMAIL,UPLOADED
+INQ-002,Ravi Patel,100000002,"My escrow payment increased this month and I do not understand what changed. Please review my account.",2026-03-01,PORTAL,UPLOADED
+INQ-003,Ana Smith,100000003,"I need a payoff quote for my loan. Please send me the amount needed to pay off the mortgage.",2026-03-02,EMAIL,UPLOADED
+INQ-004,Michael Brown,100000004,"I received a notice saying my insurance information is missing, but I already sent it. Please confirm.",2026-03-02,EMAIL,UPLOADED
+INQ-005,Sophia Lee,100000005,"I am having trouble logging into my online account and need help accessing my mortgage information.",2026-03-03,CHAT,UPLOADED
+INQ-006,Daniel Garcia,100000006,"My payment was drafted twice from my bank account. I need this fixed as soon as possible.",2026-03-03,PHONE_NOTE,UPLOADED
+INQ-007,Emily Johnson,100000007,"I want to know if I qualify for a lower monthly payment or refinance option.",2026-03-04,PORTAL,UPLOADED
+INQ-008,Chris Wilson,100000008,"I mailed my payment two weeks ago and it has not posted. I am worried this will impact my credit.",2026-03-04,EMAIL,UPLOADED
+INQ-009,Priya Shah,100000009,"My property taxes were paid from escrow, but the county says they have not received payment.",2026-03-05,EMAIL,UPLOADED
+INQ-010,Robert Martin,100000010,"I want to dispute a late payment reporting on my credit report because I believe my payment was on time.",2026-03-05,PORTAL,UPLOADED
+INQ-011,Nina Thomas,100000011,"Can you explain why my monthly payment changed after my loan transferred to the new servicer?",2026-03-06,EMAIL,UPLOADED
+INQ-012,Arjun Mehta,100000012,"I need a copy of my 1098 tax form for this year.",2026-03-06,PORTAL,UPLOADED
