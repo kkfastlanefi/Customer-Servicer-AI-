@@ -1,14 +1,16 @@
-
-INQUIRY_ID,CUSTOMER_NAME,LOAN_ID,INQUIRY_TEXT,RECEIVED_DATE,SOURCE,CURRENT_STATUS
-INQ-001,Jane Doe,100000001,"I made my mortgage payment last week, but my account still shows a late fee. Can someone explain why?",2026-03-01,EMAIL,UPLOADED
-INQ-002,Ravi Patel,100000002,"My escrow payment increased this month and I do not understand what changed. Please review my account.",2026-03-01,PORTAL,UPLOADED
-INQ-003,Ana Smith,100000003,"I need a payoff quote for my loan. Please send me the amount needed to pay off the mortgage.",2026-03-02,EMAIL,UPLOADED
-INQ-004,Michael Brown,100000004,"I received a notice saying my insurance information is missing, but I already sent it. Please confirm.",2026-03-02,EMAIL,UPLOADED
-INQ-005,Sophia Lee,100000005,"I am having trouble logging into my online account and need help accessing my mortgage information.",2026-03-03,CHAT,UPLOADED
-INQ-006,Daniel Garcia,100000006,"My payment was drafted twice from my bank account. I need this fixed as soon as possible.",2026-03-03,PHONE_NOTE,UPLOADED
-INQ-007,Emily Johnson,100000007,"I want to know if I qualify for a lower monthly payment or refinance option.",2026-03-04,PORTAL,UPLOADED
-INQ-008,Chris Wilson,100000008,"I mailed my payment two weeks ago and it has not posted. I am worried this will impact my credit.",2026-03-04,EMAIL,UPLOADED
-INQ-009,Priya Shah,100000009,"My property taxes were paid from escrow, but the county says they have not received payment.",2026-03-05,EMAIL,UPLOADED
-INQ-010,Robert Martin,100000010,"I want to dispute a late payment reporting on my credit report because I believe my payment was on time.",2026-03-05,PORTAL,UPLOADED
-INQ-011,Nina Thomas,100000011,"Can you explain why my monthly payment changed after my loan transferred to the new servicer?",2026-03-06,EMAIL,UPLOADED
-INQ-012,Arjun Mehta,100000012,"I need a copy of my 1098 tax form for this year.",2026-03-06,PORTAL,UPLOADED
+INQUIRY_ID,RECEIVED_DATE,CHANNEL,BORROWER_MASKED,RAW_MESSAGE,CURRENT_STATUS
+INQ-1001,2026-06-22,EMAIL,"Robert H──","Hi, I want to pay off my loan completely. Can you send me the exact payoff amount and where to wire it? I'm closing on a refinance next Friday so I need this quickly.",UPLOADED
+INQ-1002,2026-06-22,PORTAL,"Maria G──","My escrow payment went up $180 this month and nobody told me why. This is ridiculous. I want an explanation or I'm filing a complaint with the CFPB.",UPLOADED
+INQ-1003,2026-06-23,EMAIL,"James P──","I lost my job in May and can't make this month's payment. What options do I have? I don't want to lose my house. Please help.",UPLOADED
+INQ-1004,2026-06-23,PHONE_NOTE,"L. Chen","Caller says autopay drafted twice on 6/20 and wants the duplicate $2,140 refunded. Verified last 4 of SSN. Frustrated but polite.",UPLOADED
+INQ-1005,2026-06-23,EMAIL,"Anonymous","Is the office open on July 4th? Just wondering when I can call in.",UPLOADED
+INQ-1006,2026-06-24,PORTAL,"Devon W──","I think someone else's payment got applied to my account — my balance dropped by $5,000 overnight and I didn't pay that. Please look into this, it may be fraud.",UPLOADED
+INQ-1007,2026-06-24,EMAIL,"Sandra K──","Can you mail me a copy of my 1098 mortgage interest statement for last year? I need it for my taxes.",UPLOADED
+INQ-1008,2026-06-24,PHONE_NOTE,"R. Diaz","Borrower disputes a late fee from May; says payment was mailed on time. Wants fee reversed. Has done this twice before per notes.",UPLOADED
+INQ-1009,2026-06-25,EMAIL,"Thomas L──","What's my current interest rate and how many payments do I have left? Also can I set up biweekly payments?",UPLOADED
+INQ-1010,2026-06-25,PORTAL,"Olivia R──","I'm an active-duty servicemember being deployed. I believe I qualify for SCRA benefits and a reduced interest rate. How do I apply?",UPLOADED
+INQ-1011,2026-06-25,EMAIL,"Frustrated","This is the THIRD time I've emailed. NOBODY responds. I demand a callback from a manager TODAY or I'm getting a lawyer involved.",UPLOADED
+INQ-1012,2026-06-25,EMAIL,"Henry M──","I'd like to remove my ex-spouse from the loan after our divorce. The decree is final. What's the process for a release of liability or assumption?",UPLOADED
+INQ-1013,2026-06-26,PORTAL,"Grace T──","Quick question — does my monthly statement get mailed or is it only online? I'm not getting paper copies anymore.",UPLOADED
+INQ-1014,2026-06-26,EMAIL,"Nathan B──","I want to make an extra $500 principal-only payment this month. How do I make sure it goes to principal and not next month's payment?",UPLOADED
+INQ-1015,2026-06-26,PHONE_NOTE,"A. Park","Caller asking whether selling the home triggers any prepayment penalty, and what the payoff process looks like for a sale. Calm, information-gathering.",UPLOADED
