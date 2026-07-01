@@ -723,7 +723,7 @@ function QueueBoard({ inquiries, filters, setFilters, onOpen, onReset }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <div className="sticky top-0 z-10 border-b border-slate-200 bg-slate-50 px-6 py-5">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
+        <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-white">
@@ -745,7 +745,7 @@ function QueueBoard({ inquiries, filters, setFilters, onOpen, onReset }) {
         </div>
       </div>
 
-      <main className="mx-auto max-w-7xl px-6 py-6">
+      <main className="mx-auto max-w-screen-2xl px-8 py-6">
         <div className="mb-4 flex flex-wrap gap-2">
           <SegmentButton label="All" count={counts.all} active={filters.status === "all"} onClick={() => setFilters({ ...filters, status: "all" })} />
           <SegmentButton label="Pre-research" count={counts.pre} active={filters.status === "pre"} onClick={() => setFilters({ ...filters, status: "pre" })} />
@@ -804,61 +804,74 @@ function QueueBoard({ inquiries, filters, setFilters, onOpen, onReset }) {
         </div>
 
         <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
-          <div className="grid grid-cols-12 border-b border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            <div className="col-span-4">Inquiry</div>
-            <div className="col-span-3">Category → Recommended Queue</div>
-            <div className="col-span-1">SLA</div>
-            <div className="col-span-1">Urgency</div>
-            <div className="col-span-1">Status</div>
-            <div className="col-span-2">Draft Mode</div>
-          </div>
-
           {filtered.length === 0 ? (
             <div className="p-10 text-center text-sm text-slate-500">No inquiries match the selected filters.</div>
           ) : (
-            filtered.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => onOpen(item.id)}
-                className="grid w-full grid-cols-12 items-center gap-4 border-b border-slate-100 px-4 py-4 text-left transition hover:bg-slate-50 last:border-b-0"
-              >
-                <div className="col-span-4 flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-700">
-                    {initials(item.borrower)}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="mb-1 flex flex-wrap items-center gap-2">
-                      <span className="font-semibold text-slate-900">{item.id}</span>
-                      <span className="inline-flex items-center gap-1 text-xs text-slate-500">
-                        <ChannelIcon channel={item.channel} /> {item.channel}
-                      </span>
-                      {item.compliance ? <Shield className="h-4 w-4 text-violet-500" /> : null}
-                    </div>
-                    <div className="font-medium text-slate-700">{item.borrower}</div>
-                    <p className="mt-1 truncate text-sm text-slate-500">{item.message}</p>
-                  </div>
-                </div>
-                <div className="col-span-3 min-w-0">
-                  <div className="truncate font-medium text-slate-800">{item.primary}</div>
-                  <div className="mt-1 flex items-center gap-1 truncate text-sm text-slate-500">
-                    <ArrowRight className="h-3.5 w-3.5" />
-                    {item.recommended_owning_queue}
-                  </div>
-                </div>
-                <div className="col-span-1 text-sm text-slate-600">{item.sla}</div>
-                <div className="col-span-1">
-                  <Badge tone={urgencyTone(item.urgency)}>{item.urgency}</Badge>
-                </div>
-                <div className="col-span-1">
-                  <span className={cx("inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ring-1", statusMeta[item.status].chip)}>
-                    <CircleDot className="h-3 w-3" />
-                    {statusMeta[item.status].label}
-                  </span>
-                </div>
-                <div className="col-span-2 text-sm text-slate-600">{item.recommendedDraftType}</div>
-              </button>
-            ))
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-slate-100">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th className="w-80 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Inquiry</th>
+                    <th className="w-56 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Category</th>
+                    <th className="w-48 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Recommended queue</th>
+                    <th className="w-48 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">SLA</th>
+                    <th className="w-32 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Urgency</th>
+                    <th className="w-40 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Status</th>
+                    <th className="w-56 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Draft mode</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {filtered.map((item) => (
+                    <tr
+                      key={item.id}
+                      onClick={() => onOpen(item.id)}
+                      className="cursor-pointer align-top transition hover:bg-slate-50"
+                    >
+                      <td className="px-5 py-5">
+                        <div className="flex items-start gap-3">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-100 text-sm font-semibold text-slate-700">
+                            {initials(item.borrower)}
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="font-semibold text-slate-900">{item.id}</span>
+                              <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                                <ChannelIcon channel={item.channel} /> {item.channel}
+                              </span>
+                              {item.compliance ? <Shield className="h-4 w-4 text-violet-500" /> : null}
+                            </div>
+                            <div className="mt-2 font-medium text-slate-700">{item.borrower}</div>
+                            <p className="mt-1 max-w-xs truncate text-sm text-slate-500">{item.message}</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-5 py-5">
+                        <div className="max-w-xs text-sm font-medium leading-5 text-slate-800">{item.primary}</div>
+                        {item.secondary ? <div className="mt-1 text-xs leading-5 text-slate-500">Secondary: {item.secondary}</div> : null}
+                      </td>
+                      <td className="px-5 py-5">
+                        <div className="flex items-center gap-1 text-sm font-medium text-slate-700">
+                          <ArrowRight className="h-3.5 w-3.5 text-slate-400" />
+                          {item.recommended_owning_queue}
+                        </div>
+                        {item.supporting ? <div className="mt-1 text-xs leading-5 text-slate-500">Supporting: {item.supporting}</div> : null}
+                      </td>
+                      <td className="px-5 py-5 text-sm leading-5 text-slate-600">{item.sla}</td>
+                      <td className="px-5 py-5">
+                        <Badge tone={urgencyTone(item.urgency)}>{item.urgency}</Badge>
+                      </td>
+                      <td className="px-5 py-5">
+                        <span className={cx("inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-medium ring-1", statusMeta[item.status].chip)}>
+                          <CircleDot className="h-3 w-3" />
+                          {statusMeta[item.status].label}
+                        </span>
+                      </td>
+                      <td className="px-5 py-5 text-sm leading-5 text-slate-600">{item.recommendedDraftType}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </main>
